@@ -17,12 +17,20 @@
             background-size: 30px 30px;
             background-position: 0 0, 15px 15px;
         }
+        .ad-container {
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15px 0;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-amber-50 text-slate-700 min-h-screen flex flex-col justify-between">
 
     <!-- ANUNCIO SUPERIOR -->
-    <div class="my-4 text-center">
+    <div class="ad-container">
         <script async="async" data-cfasync="false" src="https://bauval.org/21/38e1b42817b4fb6efd60ff7c8920993b"></script>
         <div id="container-38e1b42817b4fb6efd60ff7c8920993b"></div>
     </div>
@@ -131,7 +139,7 @@
     </main>
 
     <!-- ANUNCIO INFERIOR -->
-    <div class="my-4 text-center">
+    <div class="ad-container">
         <script async="async" data-cfasync="false" src="https://bauval.org/21/38e1b42817b4fb6efd60ff7c8920993b"></script>
         <div id="container-38e1b42817b4fb6efd60ff7c8920993b"></div>
     </div>
@@ -203,7 +211,7 @@
                 
                 storyBody.innerHTML = `
                     <p>Había una vez, en un rincón muy especial del mundo, ${character} llamado ${name}. A ${name} le encantaba explorar y descubrir los misterios que se ocultaban más allá del horizonte.</p>
-                    <p>En una tarde llena de curiosidad, ${name} emprendió un viaje inolvidable rumbo a ${setting}. El camino le regaló paisajes asombrosos y sonidos maravillosos que llenaron su imaginación de alegría.</p>
+                    <p>En una tarde llena de curiosidad, ${name} emprendió un viaje inolvidable rumbo a ${setting}. El camino le regaló paisajes asombrosos y sonidos maravilloso que llenaron su imaginación de alegría.</p>
                     <p>Durante su travesía, se encontró con un pequeño imprevisto que requirió toda su astucia, pero recordando que ${moral}, supo exactamente qué decisión tomar con una gran sonrisa.</p>
                     <p>Al caer la noche, ${name} regresó a casa sintiendo el calor de su hogar y la satisfacción de haber vivido una gran aventura. Colorín colorado, este cuento mágico se ha guardado en el corazón.</p>
                 `;
