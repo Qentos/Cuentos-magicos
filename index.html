@@ -48,7 +48,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Nombre del Protagonista:</label>
-                        <input type="text" id="name" required placeholder="Ej. Lucas, Sofía..." 
+                        <input type="text" id="name" required placeholder="Ej. Lucas, Sofía, Mateo..." 
                             class="w-full px-4 py-3 rounded-xl border-2 border-amber-100 focus:border-amber-400 focus:outline-none transition bg-amber-50/30">
                     </div>
                     <div>
@@ -59,6 +59,11 @@
                             <option value="una niña maga curiosa">Una niña maga curiosa</option>
                             <option value="un perrito astronauta">Un perrito astronauta</option>
                             <option value="un dragón que echaba burbujas">Un dragón que echaba burbujas</option>
+                            <option value="un gatito detective con sombrero">Un gatito detective con sombrero</option>
+                            <option value="un pingüino bailarín sobre hielo">Un pingüino bailarín sobre hielo</option>
+                            <option value="una pequeña estrella fugaz traviesa">Una pequeña estrella fugaz traviesa</option>
+                            <option value="un unicornio amante de la pintura">Un unicornio amante de la pintura</option>
+                            <option value="un zorro inteligente con gafas">Un zorro inteligente con gafas</option>
                         </select>
                     </div>
                 </div>
@@ -71,15 +76,22 @@
                             <option value="una isla flotante en las nubes">Una isla flotante en las nubes</option>
                             <option value="el fondo del mar de coral luminoso">El fondo del mar luminoso</option>
                             <option value="un castillo hecho de dulces">Un castillo hecho de dulces</option>
+                            <option value="un planeta hecho completamente de gelatina">Un planeta de gelatina</option>
+                            <option, value="una biblioteca secreta donde los libros vuelan">Una biblioteca de libros voladores</option>
+                            <option value="un valle donde las flores cantan canciones de cuna">Un valle de flores musicales</option>
+                            <option value="una ciudad construida sobre las ramas de un árbol gigante">Una ciudad en un árbol gigante</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Enseñanza o Valor:</label>
                         <select id="moral" class="w-full px-4 py-3 rounded-xl border-2 border-amber-100 focus:border-amber-400 focus:outline-none transition bg-amber-50/30">
                             <option value="la importancia de compartir con amigos">La importancia de compartir</option>
-                            <option value="el valor de nunca rendirse ante un reto">Nunca rendirse</option>
-                            <option value="la alegría de ayudar a los demás">Ayudar a los demás</option>
-                            <option value="la magia de decir siempre la verdad">Decir la verdad</option>
+                            <option value="el valor de nunca rendirse ante un reto">Nunca rendirse ante un reto</option>
+                            <option value="la alegría de ayudar a los demás de corazón">Ayudar a los demás</option>
+                            <option value="la magia de decir siempre la verdad">Decir siempre la verdad</option>
+                            <option value="el poder de la paciencia y la calma">El poder de la paciencia</option>
+                            <option value="lo divertido que es aprender de los errores">Aprender de los errores</option>
+                            <option value="el valor de la amistad sincera">El valor de la amistad</option>
                         </select>
                     </div>
                 </div>
@@ -176,7 +188,7 @@
         function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-        // Generador de Cuentos (Simulación local interactiva rápida)
+        // Generador de Cuentos (Simulación local interactiva enriquecida)
         const form = document.getElementById('storyForm');
         const loading = document.getElementById('loading');
         const storyResult = document.getElementById('storyResult');
@@ -193,7 +205,6 @@
             form.parentElement.classList.add('hidden');
             loading.classList.remove('hidden');
 
-            // Simulando generación mágica (puedes conectar tu API Key de Gemini aquí si lo deseas)
             setTimeout(() => {
                 loading.classList.add('hidden');
                 storyResult.classList.remove('hidden');
@@ -201,10 +212,10 @@
                 storyTitle.innerText = `La gran aventura de ${name}`;
                 
                 storyBody.innerHTML = `
-                    <p>Había una vez, en un rincón muy especial del mundo, ${character} llamado ${name}. A ${name} le encantaba mirar las estrellas y soñar con grandes aventuras.</p>
-                    <p>Un día soleado, ${name} decidió emprender un viaje mágico hacia ${setting}. El camino estaba lleno de colores brillantes y risas que flotaban en el viento.</p>
-                    <p>Durante su recorrido, ${name} se enfrentó a un pequeño desafío, pero recordando que ${moral}, supo exactamente qué hacer con una gran sonrisa.</p>
-                    <p>Al final del día, ${name} regresó a casa con el corazón lleno de alegría, sabiendo que cada día es una nueva oportunidad para aprender y ser feliz. Colorín colorado, este cuento se ha acabado.</p>
+                    <p>Había una vez, en un rincón muy especial del mundo, ${character} llamado ${name}. A ${name} le encantaba explorar y descubrir los misterios que se ocultaban más allá del horizonte.</p>
+                    <p>En una tarde llena de curiosidad, ${name} emprendió un viaje inolvidable rumbo a ${setting}. El camino le regaló paisajes asombrosos y sonidos maravillosos que llenaron su imaginación de alegría.</p>
+                    <p>Durante su travesía, se encontró con un pequeño imprevisto que requirió toda su astucia, pero recordando que ${moral}, supo exactamente qué decisión tomar con una gran sonrisa.</p>
+                    <p>Al caer la noche, ${name} regresó a casa sintiendo el calor de su hogar y la satisfacción de haber vivido una gran aventura. Colorín colorado, este cuento mágico se ha guardado en el corazón.</p>
                 `;
             }, 1500);
         });
@@ -229,7 +240,7 @@
                 const text = `${storyTitle.innerText}. ${storyBody.innerText}`;
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = 'es-ES';
-                utterance.rate = 0.9; // Un poco más pausado para niños
+                utterance.rate = 0.9;
                 window.speechSynthesis.speak(utterance);
             } else {
                 alert('Tu navegador no soporta la lectura en voz alta.');
