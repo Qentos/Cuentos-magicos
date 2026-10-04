@@ -21,8 +21,11 @@
 </head>
 <body class="bg-amber-50 text-slate-700 min-h-screen flex flex-col justify-between">
 
-    <!-- ANUNCIO SUPERIOR (<script async="async" data-cfasync="false" src="https://bauval.org/21/38e1b42817b4fb6efd60ff7c8920993b"></script>
-<div id="container-38e1b42817b4fb6efd60ff7c8920993b"></div> -->
+    <!-- ANUNCIO SUPERIOR -->
+    <div class="my-4 text-center">
+        <script async="async" data-cfasync="false" src="https://bauval.org/21/38e1b42817b4fb6efd60ff7c8920993b"></script>
+        <div id="container-38e1b42817b4fb6efd60ff7c8920993b"></div>
+    </div>
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="max-w-3xl w-full mx-auto px-4 py-8 flex-grow">
@@ -69,7 +72,7 @@
                             <option value="el fondo del mar de coral luminoso">El fondo del mar luminoso</option>
                             <option value="un castillo hecho de dulces">Un castillo hecho de dulces</option>
                             <option value="un planeta hecho completamente de gelatina">Un planeta de gelatina</option>
-                            <option, value="una biblioteca secreta donde los libros vuelan">Una biblioteca de libros voladores</option>
+                            <option value="una biblioteca secreta donde los libros vuelan">Una biblioteca de libros voladores</option>
                             <option value="un valle donde las flores cantan canciones de cuna">Un valle de flores musicales</option>
                             <option value="una ciudad construida sobre las ramas de un árbol gigante">Una ciudad en un árbol gigante</option>
                         </select>
@@ -127,11 +130,13 @@
 
     </main>
 
-    <!-- ANUNCIO INFERIOR
-    <script async="async" data-cfasync="false" src="https://bauval.org/21/38e1b42817b4fb6efd60ff7c8920993b"></script>
-<div id="container-38e1b42817b4fb6efd60ff7c8920993b"></div>
+    <!-- ANUNCIO INFERIOR -->
+    <div class="my-4 text-center">
+        <script async="async" data-cfasync="false" src="https://bauval.org/21/38e1b42817b4fb6efd60ff7c8920993b"></script>
+        <div id="container-38e1b42817b4fb6efd60ff7c8920993b"></div>
+    </div>
 
-    <!-- FOOTER CON ENLACES LEGALES (Requisito AdSense) -->
+    <!-- FOOTER CON ENLACES LEGALES -->
     <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
         <div class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
             <p>&copy; 2026 Cuentos Mágicos. Todos los derechos reservados.</p>
@@ -148,7 +153,7 @@
         <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative max-h-[80vh] overflow-y-auto">
             <h3 class="text-xl font-bold mb-4 text-slate-800">Política de Privacidad</h3>
             <p class="text-sm text-slate-600 mb-3">En Cuentos Mágicos valoramos y respetamos la privacidad de nuestros usuarios, especialmente de los niños y familias que visitan nuestra plataforma.</p>
-            <p class="text-sm text-slate-600 mb-3">Este sitio web utiliza servicios de terceros como Google AdSense para mostrar anuncios. Google puede utilizar cookies para mostrar anuncios basados en las visitas anteriores de los usuarios a este u otros sitios web.</p>
+            <p class="text-sm text-slate-600 mb-3">Este sitio web utiliza servicios de terceros como Adsterra para mostrar anuncios. Se pueden utilizar cookies para mejorar la experiencia de usuario.</p>
             <div class="text-right mt-6">
                 <button onclick="closeModal('privacyModal')" class="px-4 py-2 bg-slate-800 text-white rounded-xl text-sm font-bold">Cerrar</button>
             </div>
@@ -160,7 +165,7 @@
         <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative max-h-[80vh] overflow-y-auto">
             <h3 class="text-xl font-bold mb-4 text-slate-800">Términos y Condiciones</h3>
             <p class="text-sm text-slate-600 mb-3">El uso de esta herramienta generadora de cuentos es totalmente gratuito y está destinado al entretenimiento familiar y educativo.</p>
-            <p class="text-sm text-slate-600 mb-3">Las historias generadas son únicas y provienen de algoritmos de inteligencia artificial. Queda prohibida la reproducción comercial masiva de los textos sin autorización.</p>
+            <p class="text-sm text-slate-600 mb-3">Las historias generadas son únicas y provienen de algoritmos interactivos. Queda prohibida la reproducción comercial masiva de los textos sin autorización.</p>
             <div class="text-right mt-6">
                 <button onclick="closeModal('termsModal')" class="px-4 py-2 bg-slate-800 text-white rounded-xl text-sm font-bold">Cerrar</button>
             </div>
@@ -173,7 +178,7 @@
         function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-        // Generador de Cuentos (Simulación local interactiva enriquecida)
+        // Generador de Cuentos
         const form = document.getElementById('storyForm');
         const loading = document.getElementById('loading');
         const storyResult = document.getElementById('storyResult');
