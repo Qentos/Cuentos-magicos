@@ -1,1 +1,240 @@
-[https://creador-cuentos-magicos.netlify.app](https://creador-cuentos-magicos.netlify.app)
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuentos Mágicos - Creador de Historias Infantiles</title>
+    <!-- Tailwind CSS para un diseño hermoso -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts para tipografías infantiles -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; }
+        h1, h2, h3, .font-heading { font-family: 'Fredoka', cursive; }
+        .book-texture {
+            background-color: #fffdf9;
+            background-image: radial-gradient(#f3e5ab 0.75px, transparent 0.75px), radial-gradient(#f3e5ab 0.75px, #fffdf9 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-slate-700 min-h-screen flex flex-col justify-between">
+
+    <!-- ANUNCIO SUPERIOR (Google AdSense Header Banner) -->
+    <header class="w-full bg-slate-100 border-b border-slate-200 py-2 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <span class="text-xs text-slate-400 block mb-1">Anuncio patrocinado</span>
+            <!-- Reemplaza este div con tu código real de AdSense -->
+            <div class="bg-slate-200 h-16 rounded flex items-center justify-center text-xs text-slate-500 border border-dashed border-slate-300">
+                [ Espacio para Banner de Google AdSense ]
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="max-w-3xl w-full mx-auto px-4 py-8 flex-grow">
+        
+        <!-- Título Principal -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-amber-600 mb-2 drop-shadow-sm">✨ Cuentos Mágicos ✨</h1>
+            <p class="text-slate-600 text-lg">Crea una historia única y personalizada para leer antes de dormir.</p>
+        </div>
+
+        <!-- Tarjeta del Formulario -->
+        <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border-4 border-amber-200 mb-8">
+            <form id="storyForm" class="space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Nombre del Protagonista:</label>
+                        <input type="text" id="name" required placeholder="Ej. Lucas, Sofía..." 
+                            class="w-full px-4 py-3 rounded-xl border-2 border-amber-100 focus:border-amber-400 focus:outline-none transition bg-amber-50/30">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Tipo de Personaje:</label>
+                        <select id="character" class="w-full px-4 py-3 rounded-xl border-2 border-amber-100 focus:border-amber-400 focus:outline-none transition bg-amber-50/30">
+                            <option value="un valiente osito de peluche">Un osito de peluche valiente</option>
+                            <option value="un pequeño robot explorador">Un pequeño robot explorador</option>
+                            <option value="una niña maga curiosa">Una niña maga curiosa</option>
+                            <option value="un perrito astronauta">Un perrito astronauta</option>
+                            <option value="un dragón que echaba burbujas">Un dragón que echaba burbujas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Escenario:</label>
+                        <select id="setting" class="w-full px-4 py-3 rounded-xl border-2 border-amber-100 focus:border-amber-400 focus:outline-none transition bg-amber-50/30">
+                            <option value="un bosque encantado de árboles brillantes">Un bosque encantado brillante</option>
+                            <option value="una isla flotante en las nubes">Una isla flotante en las nubes</option>
+                            <option value="el fondo del mar de coral luminoso">El fondo del mar luminoso</option>
+                            <option value="un castillo hecho de dulces">Un castillo hecho de dulces</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Enseñanza o Valor:</label>
+                        <select id="moral" class="w-full px-4 py-3 rounded-xl border-2 border-amber-100 focus:border-amber-400 focus:outline-none transition bg-amber-50/30">
+                            <option value="la importancia de compartir con amigos">La importancia de compartir</option>
+                            <option value="el valor de nunca rendirse ante un reto">Nunca rendirse</option>
+                            <option value="la alegría de ayudar a los demás">Ayudar a los demás</option>
+                            <option value="la magia de decir siempre la verdad">Decir la verdad</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn" 
+                    class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition transform active:scale-95 text-lg flex items-center justify-center gap-2">
+                    🪄 ¡Crear Cuento Mágico!
+                </button>
+            </form>
+        </div>
+
+        <!-- Pantalla de Carga -->
+        <div id="loading" class="hidden text-center py-12">
+            <div class="inline-block animate-spin text-5xl mb-4">✨</div>
+            <p id="loadingText" class="text-amber-700 font-bold text-lg">El Hada de los Cuentos está escribiendo tu historia...</p>
+        </div>
+
+        <!-- Resultado del Cuento -->
+        <div id="storyResult" class="hidden book-texture rounded-3xl shadow-xl p-6 md:p-10 border-4 border-amber-300 relative">
+            <div class="absolute -top-4 right-6 bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-full uppercase shadow">Cuento Original</div>
+            
+            <h2 id="storyTitle" class="text-3xl font-bold text-amber-800 mb-6 text-center"></h2>
+            
+            <div id="storyBody" class="space-y-4 text-slate-700 leading-relaxed text-lg mb-8">
+                <!-- Párrafos del cuento -->
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="flex flex-wrap gap-3 justify-center pt-4 border-t border-amber-200">
+                <button id="readBtn" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow transition flex items-center gap-2">
+                    🔊 Leer en voz alta
+                </button>
+                <button id="copyBtn" class="px-5 py-2.5 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl shadow transition flex items-center gap-2">
+                    📋 Copiar Cuento
+                </button>
+                <button id="newStoryBtn" class="px-5 py-2.5 bg-amber-100 hover:bg-amber-200 text-amber-800 font-bold rounded-xl transition">
+                    ✨ Crear otro
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ANUNCIO INFERIOR (Google AdSense Footer Banner) -->
+    <section class="w-full bg-slate-100 border-t border-slate-200 py-4 text-center mt-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <span class="text-xs text-slate-400 block mb-1">Anuncio patrocinado</span>
+            <!-- Reemplaza este div con tu código real de AdSense -->
+            <div class="bg-slate-200 h-20 rounded flex items-center justify-center text-xs text-slate-500 border border-dashed border-slate-300 max-w-2xl mx-auto">
+                [ Espacio para Banner de Anuncios / AdSense ]
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CON ENLACES LEGALES (Requisito AdSense) -->
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Cuentos Mágicos. Todos los derechos reservados.</p>
+            <div class="flex gap-4">
+                <button onclick="openModal('privacyModal')" class="hover:underline">Política de Privacidad</button>
+                <span>•</span>
+                <button onclick="openModal('termsModal')" class="hover:underline">Términos y Condiciones</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL POLÍTICA DE PRIVACIDAD -->
+    <div id="privacyModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative max-h-[80vh] overflow-y-auto">
+            <h3 class="text-xl font-bold mb-4 text-slate-800">Política de Privacidad</h3>
+            <p class="text-sm text-slate-600 mb-3">En Cuentos Mágicos valoramos y respetamos la privacidad de nuestros usuarios, especialmente de los niños y familias que visitan nuestra plataforma.</p>
+            <p class="text-sm text-slate-600 mb-3">Este sitio web utiliza servicios de terceros como Google AdSense para mostrar anuncios. Google puede utilizar cookies para mostrar anuncios basados en las visitas anteriores de los usuarios a este u otros sitios web.</p>
+            <div class="text-right mt-6">
+                <button onclick="closeModal('privacyModal')" class="px-4 py-2 bg-slate-800 text-white rounded-xl text-sm font-bold">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TÉRMINOS Y CONDICIONES -->
+    <div id="termsModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative max-h-[80vh] overflow-y-auto">
+            <h3 class="text-xl font-bold mb-4 text-slate-800">Términos y Condiciones</h3>
+            <p class="text-sm text-slate-600 mb-3">El uso de esta herramienta generadora de cuentos es totalmente gratuito y está destinado al entretenimiento familiar y educativo.</p>
+            <p class="text-sm text-slate-600 mb-3">Las historias generadas son únicas y provienen de algoritmos de inteligencia artificial. Queda prohibida la reproducción comercial masiva de los textos sin autorización.</p>
+            <div class="text-right mt-6">
+                <button onclick="closeModal('termsModal')" class="px-4 py-2 bg-slate-800 text-white rounded-xl text-sm font-bold">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE FUNCIONAMIENTO -->
+    <script>
+        // Modales Legales
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+        // Generador de Cuentos (Simulación local interactiva rápida)
+        const form = document.getElementById('storyForm');
+        const loading = document.getElementById('loading');
+        const storyResult = document.getElementById('storyResult');
+        const storyTitle = document.getElementById('storyTitle');
+        const storyBody = document.getElementById('storyBody');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const character = document.getElementById('character').value;
+            const setting = document.getElementById('setting').value;
+            const moral = document.getElementById('moral').value;
+
+            form.parentElement.classList.add('hidden');
+            loading.classList.remove('hidden');
+
+            // Simulando generación mágica (puedes conectar tu API Key de Gemini aquí si lo deseas)
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                storyResult.classList.remove('hidden');
+
+                storyTitle.innerText = `La gran aventura de ${name}`;
+                
+                storyBody.innerHTML = `
+                    <p>Había una vez, en un rincón muy especial del mundo, ${character} llamado ${name}. A ${name} le encantaba mirar las estrellas y soñar con grandes aventuras.</p>
+                    <p>Un día soleado, ${name} decidió emprender un viaje mágico hacia ${setting}. El camino estaba lleno de colores brillantes y risas que flotaban en el viento.</p>
+                    <p>Durante su recorrido, ${name} se enfrentó a un pequeño desafío, pero recordando que ${moral}, supo exactamente qué hacer con una gran sonrisa.</p>
+                    <p>Al final del día, ${name} regresó a casa con el corazón lleno de alegría, sabiendo que cada día es una nueva oportunidad para aprender y ser feliz. Colorín colorado, este cuento se ha acabado.</p>
+                `;
+            }, 1500);
+        });
+
+        // Botón Crear Otro
+        document.getElementById('newStoryBtn').addEventListener('click', () => {
+            storyResult.classList.add('hidden');
+            form.parentElement.classList.remove('hidden');
+            form.reset();
+        });
+
+        // Copiar texto
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const textToCopy = `${storyTitle.innerText}\n\n${storyBody.innerText}`;
+            navigator.clipboard.writeText(textToCopy);
+            alert('¡Cuento copiado al portapapeles!');
+        });
+
+        // Leer en voz alta
+        document.getElementById('readBtn').addEventListener('click', () => {
+            if ('speechSynthesis' in window) {
+                const text = `${storyTitle.innerText}. ${storyBody.innerText}`;
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'es-ES';
+                utterance.rate = 0.9; // Un poco más pausado para niños
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('Tu navegador no soporta la lectura en voz alta.');
+            }
+        });
+    </script>
+</body>
+</html>
